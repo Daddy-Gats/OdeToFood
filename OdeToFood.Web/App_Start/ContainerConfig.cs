@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using OdeToFood.Data.Services;
+using OdeToFood.Data.Servicesamd;
 using System;
 using System.Collections.Generic;
 using System.Linq;
