@@ -10,15 +10,16 @@ namespace OdeToFood.Data.Services
     {
 
         List<Restaurant> restaurants;
+
         public InMemoryRestaurantData()
         {
-            restaurants = new List<Restaurant>()
-            {
-                new Restaurant {Id = 1, Name = "Magakos Pizza", Cuisine =CuisineType.Italian},
-                new Restaurant {Id = 2, Name = "O Dikos Sou", Cuisine =CuisineType.Indian},
-                new Restaurant {Id = 3, Name = "To megalo Aggouri", Cuisine =CuisineType.French}
+            restaurants = new List<Restaurant>();
+            //{
+            //    new Restaurant { Id = 1, Name = "Magakos Pizza", Cuisine = CuisineType.Italian },
+            //    new Restaurant { Id = 2, Name = "O Dikos Sou", Cuisine = CuisineType.Indian },
+            //    new Restaurant { Id = 3, Name = "To megalo Aggouri", Cuisine = CuisineType.French }
 
-            };
+            //};
 
         }
 
@@ -26,6 +27,15 @@ namespace OdeToFood.Data.Services
         {
             restaurants.Add(restaurant);
             restaurant.Id = restaurants.Max(r => r.Id) + 1;
+        }
+
+        public void Delete(int id)
+        {
+            var restaurant = Get(id);
+            if(restaurant != null)
+            {
+                restaurants.Remove(restaurant);
+            }
         }
 
         public Restaurant Get(int id)
